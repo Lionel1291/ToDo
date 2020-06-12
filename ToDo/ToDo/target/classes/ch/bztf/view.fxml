@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<SplitPane dividerPositions="0.5" prefHeight="246.0" prefWidth="1065.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.bztf.ViewController">
+   <items>
+      <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="244.0" prefWidth="924.0">
+         <items>
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="36.0" prefWidth="948.0">
+               <children>
+                  <VBox alignment="CENTER" layoutY="5.0" spacing="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="26.0" prefWidth="937.0" spacing="10.0">
+                           <children>
+                              <TextField fx:id="tf_Name_Add" prefHeight="26.0" prefWidth="284.0" promptText="Name des ToDo's" />
+                              <TextField fx:id="tf_WithWho_Add" prefHeight="26.0" prefWidth="187.0" promptText="Mit wem?" />
+                              <TextField fx:id="tf_Where_Add" prefHeight="25.0" prefWidth="216.0" promptText="Wo?" />
+                              <DatePicker fx:id="dp_Add" promptText="Datum" showWeekNumbers="true" />
+                              <TextField fx:id="tf_Hours_Add" prefHeight="25.0" prefWidth="130.0" promptText=" Stunde" />
+                              <TextField fx:id="tf_Minutes_Add" prefHeight="26.0" prefWidth="137.0" promptText="Minute" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+            <TableView fx:id="tv_Show" prefHeight="200.0" prefWidth="942.0">
+              <columns>
+                  <TableColumn fx:id="tc_Show_ToDoNumber" prefWidth="75.0" text="Nummer" />
+                <TableColumn fx:id="tc_Show_ToDoName" prefWidth="75.0" text="Name" />
+                  <TableColumn fx:id="tc_Show_WithWho" prefWidth="75.0" text="Mit Wem" />
+                  <TableColumn fx:id="tc_Show_Where" prefWidth="75.0" text="Wo" />
+                  <TableColumn fx:id="tc_Show_Date" prefWidth="75.0" text="Datum" />
+                  <TableColumn fx:id="tc_Show_Time" prefWidth="75.0" text="Zeit" />
+              </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+         </items>
+      </SplitPane>
+      <VBox alignment="TOP_CENTER" prefHeight="244.0" prefWidth="159.0" spacing="10.0">
+         <children>
+            <Button fx:id="button_Add" alignment="TOP_CENTER" mnemonicParsing="false" onMouseClicked="#addData" prefHeight="26.0" prefWidth="115.0" text="Hinzufügen" textAlignment="CENTER" />
+            <Separator prefWidth="200.0" />
+            <TextField fx:id="tf_DeleteToDoNr" prefHeight="26.0" prefWidth="99.0" promptText="ToDo Nr" />
+            <Button fx:id="butto_Delete" mnemonicParsing="false" onMouseClicked="#deleteData" text="Löschen" textAlignment="CENTER" />
+            <Separator layoutX="15.0" layoutY="51.0" prefWidth="200.0" />
+            <Text fx:id="t_State" strokeType="OUTSIDE" strokeWidth="0.0" text="Status" textAlignment="CENTER" wrappingWidth="95.4248046875" />
+         </children>
+         <padding>
+            <Insets left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </VBox>
+   </items>
+</SplitPane>

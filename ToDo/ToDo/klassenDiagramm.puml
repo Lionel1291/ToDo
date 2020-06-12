@@ -1,0 +1,77 @@
+@startuml klassenDiagramm
+class App{
+    - {static} scene : Scene
+    + start(Stage stage) : void
+    {static} setRoot(String fxml) : void
+    - {static} loadFXML(String fxml) : Parent
+    + {static} main(String[] args) : void
+}
+
+class DeleteController{
+    - button_No : Button
+    - button_Yes : Button
+    - deleteNr : String
+    - sqlDelete : String
+    # deleteData(MouseEvent event) : void
+    # backToMain(MouseEvent event) : void
+}
+
+class SQLiteDBToDo{
+    + {static} sQLiteDBToDoConnection() : Connection null
+}
+
+class ToDo{
+    - number : int
+    - toDoName : String
+    - withWho : String
+    - where : String
+    - date : Date
+    - time : String
+
+    + ToDo(int newNumber, String newToDoName, String newWithWho, String newWhere, Date newDate, String newTime) : void
+    + setNumber(int newNumber) : void
+    + getNumber() : int
+    + setToDoName(String newToDoName) : void
+    + getToDoName() : String
+    + setWithWho(String newWithWho) : void
+    + getWithWho() : String
+    + setWhere(String newWhere) : void
+    + getWhere() : String
+    + setDate(Date newDate) : void
+    + getDate() : Date
+    + setTime(String newTime) : void
+    + getTime() : String
+}
+
+class ViewController{
+    - tf_Name_Add : TextField
+    - tf_WithWho_Add : TextField
+    - tf_Where_Add : TextField
+    - tf_Hours_Add : TextField
+    - tf_Minutes_Add : TextField
+    - tf_DeleteToDoNr : TextField
+    - t_State : Text
+    - dp_Add : DatePicker
+    - button_Add : Button
+    - butto_Delete : Button
+    - tv_Show : TableView<ToDo>
+    - tc_Show_ToDoNumber : TableColumn<ToDo, Integer>
+    - tc_Show_ToDoName : TableColumn<ToDo, String>
+    - vtc_Show_WithWho : TableColumn<ToDo, String>
+    - tc_Show_Where : TableColumn<ToDo, String>
+    - tc_Show_Date : TableColumn<ToDo, Date>
+    - tc_Show_Time : TableColumn<ToDo, String>
+    - ol : ObservableList<ToDo>
+    - sqlSelect : String
+    - sqlInsert : String
+    - sqlDelete : String
+    + {static} deleteNr : String
+    # addData(MouseEvent event) : void
+    # deleteData(MouseEvent event) : void
+    - loadAll() : void
+    - insertAll(String toDoName, String withWho, String where, java.sql.Date sqlDate, String time) : void
+    - actuallDateInsert(LocalDate localDate, Boolean idBoolean) : Boolean
+    - timeCheck(String hours, String minutes) : String
+    - actuallDateSelect(Boolean sdBoolean, LocalDate localSQLDate) : Boolean
+}
+@enduml
